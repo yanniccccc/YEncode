@@ -17,6 +17,9 @@ def vigenere(key, message):
                 encrytxt += chr(msgChar)
             else:
                 msgChar = msgChar + (keyChar-65)
+                if msgChar > 90:
+                    msgChar = (msgChar - 90) + 64
+
                 encrytxt += chr(msgChar)
         pass
     else:
@@ -31,6 +34,9 @@ def vigenere(key, message):
                 encrytxt += chr(msgChar)
             else:
                 msgChar = msgChar + (keyChar-65)
+                if msgChar > 90:
+                    msgChar = (msgChar - 90) + 64
+
                 encrytxt += chr(msgChar)
 
 

@@ -24,8 +24,13 @@ function ydecode() {
         echo YDecrypt
         echo Version:   1.0.0
         echo Author:    Yannic Schnepf
+        echo "----------------------------"
+        echo "General Layout:"
+        echo "yencode/ydecode <name> <-k >> (if key needed)> <key> <text>"
+        echo "----------------------------"
         echo Commands and Flags:
         echo "--help        > Help and Info"
+        echo "-k            > this flag needs to be in front of en/decryption key"
         echo "rot01         > Rot decryption is a popular yet simple decryption system"
         echo "   02"
         echo "   03"
@@ -33,6 +38,7 @@ function ydecode() {
         echo "   25"
         echo "atbash"
         echo "reverse"
+        echo "vignere-chiffre, vignere, vc >  needs key(and -k)"
 
     fi
 
@@ -65,14 +71,21 @@ function yencode() {
         echo Version:   1.0.0
         echo Author:    Yannic Schnepf
         echo Commands and Flags:
+        echo "----------------------------"
+        echo "General Layout:"
+        echo "yencode/ydecode <name> <-k >> (if key needed)> <key> <text>"
+        echo "----------------------------"
+        echo Commands and Flags:
         echo "--help        > Help and Info"
-        echo "rot01         > Rot encryption is a popular yet simple encryption system"
+        echo "-k            > this flag needs to be in front of en/decryption key"
+        echo "rot01         > Rot decryption is a popular yet simple decryption system"
         echo "   02"
         echo "   03"
         echo "   .."
         echo "   25"
         echo "atbash"
         echo "reverse"
+        echo "vignere-chiffre, vignere, vc >  needs key(and -k)"
 
     fi
     export flag
