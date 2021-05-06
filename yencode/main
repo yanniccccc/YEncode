@@ -1,0 +1,83 @@
+#!/bin/bash
+
+parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+
+
+function ydecode() {
+    m=$#
+    flag=$1
+    sentence=""
+    key=""
+    if [ $2 = "-k" ]; then
+        key=$3
+        for ((i = 4; i <= $#; i++ )); do
+            sentence+=${!i}" "
+        done
+
+    else
+        for ((i = 2; i <= $#; i++ )); do
+            sentence+=${!i}" "
+        done
+    fi
+
+    if [ $flag = "--help" ]; then
+        echo YDecrypt
+        echo Version:   1.0.0
+        echo Author:    Yannic Schnepf
+        echo Commands and Flags:
+        echo "--help        > Help and Info"
+        echo "rot01         > Rot decryption is a popular yet simple decryption system"
+        echo "   02"
+        echo "   03"
+        echo "   .."
+        echo "   25"
+        echo "atbash"
+        echo "reverse"
+
+    fi
+
+    export flag
+    export sentence
+    export key
+    cd "$parent_path"
+    python decoding/decryption.py
+
+}
+
+function yencode() {
+    m=$#
+    flag=$1
+    sentence=""
+    key=""
+    if [ $2 = "-k" ]; then
+        key=$3
+        for ((i = 4; i <= $#; i++ )); do
+            sentence+=${!i}" "
+        done
+
+    else
+        for ((i = 2; i <= $#; i++ )); do
+            sentence+=${!i}" "
+        done
+    fi
+    if [ $flag = "--help" ]; then
+        echo YEncrypt
+        echo Version:   1.0.0
+        echo Author:    Yannic Schnepf
+        echo Commands and Flags:
+        echo "--help        > Help and Info"
+        echo "rot01         > Rot encryption is a popular yet simple encryption system"
+        echo "   02"
+        echo "   03"
+        echo "   .."
+        echo "   25"
+        echo "atbash"
+        echo "reverse"
+
+    fi
+    export flag
+    export sentence
+    export key
+    cd "$parent_path"
+    python encoding/encryption.py
+}
